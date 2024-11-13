@@ -12,7 +12,7 @@ class PrizeController extends Controller
 {
     public function getPrizes()
     {
-        $data = Cache::rememberForever('active_products', function () {
+        $data = Cache::remember('active_products', 60*60*24 ,function () {
             return Products::query()->where('is_active', 1)->get()->transform(function ($item) {
                 return [
                     'id' => $item->id,
