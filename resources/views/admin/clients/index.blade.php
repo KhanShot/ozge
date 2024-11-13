@@ -35,7 +35,7 @@
                                 <td>{{ $client->used_date }}</td>
                                 <td class="d-flex">
                                     <form action="{{route('clients.destroy', $client->id)}}" method="post"\
-                                        onsubmit="confirm('Вы действительно хотите навсегда удалить этого клиента ?!')">
+                                        onsubmit="return confirm('Вы действительно хотите навсегда удалить этого клиента ?!')">
                                         @csrf @method('DELETE')
                                         <button class="btn btn-danger"> <span data-feather="trash"></span></button>
                                     </form>

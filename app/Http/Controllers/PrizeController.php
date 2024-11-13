@@ -5,23 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Clients;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Crypt;
 
 class PrizeController extends Controller
 {
     public function getPrizes()
     {
-        return Products::query()->where('is_active', 1)->get()->transform(function ($item) {
-            return [
-                'id' => $item->id,
-                'name' => $item->name,
-                'value' => $item->description,
-                'bgColor' => $item->bgColor,
-                'color' => $item->color,
-                'probability' => (int)$item->probability,
-            ];
+        $data = Cache::rememberForever('active_products', function () {
+            return Products::query()->where('is_active', 1)->get()->transform(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'value' => $item->description,
+                    'bgColor' => $item->bgColor,
+                    'color' => $item->color,
+                    'probability' => (int)$item->probability,
+                ];
+            });
         });
-
+        return $data;
     }
     public function checkPrize(Request $request){
         $client = Clients::query()->where('promo', $request->get('promo'))
