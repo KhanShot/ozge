@@ -19,6 +19,7 @@
                     </div>
                     <div class="d-flex justify-content-center mt-3 align-items-center">
                         <FortuneWheel
+			    v-if="!isLoading"
                             style="max-width: 500px"
                             borderColor="#584b43"
                             :borderWidth="6"
@@ -50,6 +51,7 @@ import CryptoJS from "crypto-js";
         data() {
           return {
               key: import.meta.env.VITE_API_KEY,
+	      isLoading: true,
               form:{
                   promo: null,
                   is_agree: true
@@ -65,7 +67,7 @@ import CryptoJS from "crypto-js";
                   btnText: '',
                   disabled: true,
               },
-              prizes: []
+              prizes:[]
             }
         },
         mounted() {
@@ -160,8 +162,13 @@ import CryptoJS from "crypto-js";
                     .get('/p-list')
                     .then((response) => {
                         let data = response.data;
-                        this.prizes = data
-                    });
+                    	this.prizes = data;
+			this.isLoading = false;
+			}).catch((error) => {
+      				this.isLoading = false; // Ensure the loading state is false even if there is an error
+      				console.error('Error fetching prizes:', error);
+      				// Handle the error gracefully (e.g., show a message to the user)
+    			});;
             },
             // Simulate the request back-end interface, verified: whether to pass the verification, duration: delay time
             DoServiceVerify(verified, duration) {
