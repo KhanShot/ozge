@@ -62,7 +62,7 @@ import CryptoJS from "crypto-js";
                   borderColor: '#bb708e',
                   textDirection: "vertical",
                   btnWidth: 80,
-                  fontSize: 25,
+                  fontSize: 16,
                   textLength: 10,
                   btnText: '',
                   disabled: true,
