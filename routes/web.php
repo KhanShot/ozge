@@ -6,6 +6,7 @@ Route::get('/', function () {
     return view('front.home');
 })->name('front');
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

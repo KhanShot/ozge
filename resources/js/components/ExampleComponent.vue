@@ -21,7 +21,7 @@
                         <FortuneWheel
 			    v-if="!isLoading"
                             style="max-width: 500px"
-                            borderColor="#584b43"
+                            borderColor="#fff"
                             :borderWidth="6"
                             :verify="canvasVerify"
                             :canvas="canvasOptions"
@@ -30,6 +30,7 @@
                             @rotateStart="onCanvasRotateStart"
                             @rotateEnd="onRotateEnd"
                         />
+
                     </div>
                     <div class="d-flex justify-content-center align-items-center mt-2 footer">
                         © 2024 "Ozge" бренд коллекциясы
@@ -59,7 +60,7 @@ import CryptoJS from "crypto-js";
               canvasVerify: false,
               canvasOptions: {
                   borderWidth: 6,
-                  borderColor: '#bb708e',
+                  borderColor: '#000',
                   textDirection: "vertical",
                   btnWidth: 80,
                   fontSize: 16,

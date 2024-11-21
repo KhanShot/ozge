@@ -21,12 +21,14 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 import 'vue-fortune-wheel/style.css'
 import LaravelVueCrypto from 'laravel-vue-crypto'
+import TestComponent from "./components/TestComponent.vue";
 
 (function () {
     'use strict'
     feather.replace({ 'aria-hidden': 'true' })
 })()
 app.component('example-component', ExampleComponent);
+app.component('test-component', TestComponent);
 
 /**
  * The following block of code may be used to automatically register your

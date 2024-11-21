@@ -1,19 +1,22 @@
 @extends('layouts.app')
 <style>
     .fw-btn__btn{
-        background: #d01d1d !important;
-        border: 3px solid #bb708e !important;
-        width: 30px !important;
-        height: 30px !important;
-        top: -52% !important;
+        background: rgba(0, 0,0, 0.7) !important;
+        border: none !important;
+        width: 50px !important;
+        height: 50px !important;
+        top: 0 !important;
         transform: rotateX(180deg);
+
     }
     .fw-btn__btn::before{
+        display: none !important;
         border-bottom-color: #d01d1d!important;
         border-left: 12px solid transparent !important;
         border-right: 12px solid transparent !important;
     }
     .fw-btn__btn::after{
+        display: none !important;
         border-left: 12px solid transparent !important;
         border-right: 12px solid transparent !important;
         border-bottom: 20px #bb708e solid !important;
