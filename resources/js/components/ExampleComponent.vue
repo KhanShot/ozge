@@ -17,7 +17,10 @@
                     <div class="mt-3 w-100">
                         <button class="btn-danger btn w-100" @click="startSpin">Айналдыру</button>
                     </div>
-                    <div class="d-flex justify-content-center mt-3 align-items-center">
+                    <div class="text-center mt-3">
+                        <img src="pointer.png" width="24" alt="">
+                    </div>
+                    <div class="d-flex justify-content-center mt-1 align-items-center">
                         <FortuneWheel
 			    v-if="!isLoading"
                             style="max-width: 500px"
@@ -66,7 +69,7 @@ import CryptoJS from "crypto-js";
                   fontSize: 16,
                   textLength: 10,
                   btnText: '',
-                  disabled: true,
+                  disabled: false,
               },
               prizes:[]
             }
@@ -81,6 +84,8 @@ import CryptoJS from "crypto-js";
         methods: {
 
             onCanvasRotateStart(rotate) {
+                $(".fw-btn__btn").addClass('down')
+                console.log('toggled')
                 if (this.canvasVerify) {
                     const verified = true // true: the test passed the verification, false: the test failed the verification
                     this.DoServiceVerify(verified, 500).then((verifiedRes) => {
@@ -109,6 +114,7 @@ import CryptoJS from "crypto-js";
                         text: "Проверьте все поля!",
                     });
                 }else{
+
                     axios
                         .post('/prizes/check', this.form)
                         .then((response) => {
@@ -129,6 +135,8 @@ import CryptoJS from "crypto-js";
 
             },
             onRotateEnd(prize) {
+                $(".fw-btn__btn").removeClass('down')
+
                 let newData = {
                     id: prize.id,
                     promo: this.form.promo

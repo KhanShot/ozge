@@ -1,13 +1,17 @@
 @extends('layouts.app')
 <style>
     .fw-btn__btn{
-        background: rgba(0, 0,0, 0.7) !important;
+        background: url("rotate.png") !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
         border: none !important;
         width: 50px !important;
         height: 50px !important;
         top: 0 !important;
-        transform: rotateX(180deg);
 
+    }
+    .fw-btn__btn.down{
+        transform: rotateZ(2070deg); transition-duration: 6s; transition-timing-function: cubic-bezier(0.36, 0.95, 0.64, 1) !important;
     }
     .fw-btn__btn::before{
         display: none !important;
@@ -45,4 +49,7 @@
 </style>
 @section('front')
     <example-component></example-component>
+@endsection
+@section('js')
+
 @endsection
