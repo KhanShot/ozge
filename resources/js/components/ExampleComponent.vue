@@ -146,6 +146,13 @@ import CryptoJS from "crypto-js";
                 axios
                     .post('/prizes/assign', encData)
                     .then((response) => {
+                        if (prize.id === 1){
+                            this.$swal.fire({
+                                icon: "error",
+                                title: ":(",
+                                text: prize.value,
+                            })
+                        }
                         this.$swal.fire({
                             icon:"success",
                             title: 'Ұтыс!',
