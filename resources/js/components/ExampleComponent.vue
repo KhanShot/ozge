@@ -10,7 +10,7 @@
                             <input type="text" required class="form-control " v-model="form.promo">
                         </div>
                         <div class="form-group d-flex flex-row-reverse justify-content-end mt-2">
-                            <label for="checkbox" style="margin-left: 10px"><a href="www.google.com" target="_blank">Келісім шартпен</a> таныстым</label>
+                            <label for="checkbox" style="margin-left: 10px"><a href="https://docs.google.com/document/d/e/2PACX-1vSMlz6OPfD_CD0autyKGOnykNb4U4K890DHffY_1v5o6GavEFnavPPW7dE4IMEC-SfRN_LIgcH0zY9r/pub" target="_blank">Келісім шартпен</a> таныстым</label>
                             <input type="checkbox" id="checkbox" v-model="form.is_agree" required class="form-check">
                         </div>
                     </div>
@@ -69,7 +69,7 @@ import CryptoJS from "crypto-js";
                   fontSize: 16,
                   textLength: 10,
                   btnText: '',
-                  disabled: false,
+                  disabled: true,
               },
               prizes:[]
             }

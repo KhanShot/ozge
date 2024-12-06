@@ -28,6 +28,10 @@
                         <input type="number" step="1" min="0" max="500" value="{{$product->quantity}}" class="form-control" required name="quantity">
                     </div>
                     <div class="form-group mb-3">
+                        <label>Количество за день</label>
+                        <input type="number" step="1" min="0" max="500" value="{{$product->quantity_day}}" class="form-control" required name="quantity_day">
+                    </div>
+                    <div class="form-group mb-3">
                         <label>Вероятность (уже есть: {{$probability}})</label>
                         <input type="number" step="1" min="0" max="100" class="form-control" value="{{$product->probability}}" required name="probability">
                     </div>

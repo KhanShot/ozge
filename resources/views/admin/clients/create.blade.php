@@ -16,7 +16,7 @@
                     @csrf
                     <div class="form-group mb-3">
                         <label>Имя *</label>
-                        <input type="text" class="form-control" required name="name">
+                        <input type="text" class="form-control" id="name" required name="name">
                     </div>
                     <div class="form-group mb-3">
                         <label>Фамилия</label>
@@ -73,9 +73,16 @@
 
 
         function copy() {
-            let text = '';
             let promo = document.getElementById('promo');
-            text = text+promo.value;
+            let text = 'Құрметті ' + document.getElementById('name').value + '\n\nhttps://ozge.store/ \n\n' +
+                "*"+promo.value+"*" +
+            '\n\nОсы ссылкаға кіріп, мына  кодты барабанға жазасыз. \n' +
+
+                'Ұтқан сыйлығыңызды скрин жасап жібересіз 🫶';
+
+
+
+
 
             navigator.clipboard.writeText(text);
             console.log(text)
