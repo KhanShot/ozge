@@ -67,7 +67,7 @@ import CryptoJS from "crypto-js";
                   textDirection: "vertical",
                   btnWidth: 80,
                   fontSize: 16,
-                  textLength: 10,
+                  textLength: 70,
                   btnText: '',
                   disabled: true,
               },
