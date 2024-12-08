@@ -67,6 +67,8 @@
     <script>
         let table = new DataTable('#dataTable', {
             responsive: true,
+            "order": [],
+            pageLength: 25,
             rowReorder: {
                 selector: 'td:nth-child(2)'
             },

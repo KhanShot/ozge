@@ -13,7 +13,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Clients::query()->with('product')->get();
+        $clients = Clients::query()->with('product')->orderByDesc('created_at')->get();
         return view('admin.clients.index', compact('clients'));
     }
 
