@@ -29,14 +29,14 @@ class ResetProductProbability extends Command
         \Illuminate\Log\log()->info('ResetProductProbability: Start');
         $startTime = microtime(true);
         $productProbabilities = [
-            1 => 55,
-            3 => 4,
-            6 => 5,
-            7 => 5,
-            9 => 6,
-            10 => 15,
-            11 => 5,
-            13 => 5,
+            1 => 69, //NOTHING
+            3 => 3, //	Airpods max
+            6 => 4, //Airpods
+            7 => 4, // 5000 тг
+            9 => 4, //Помада
+            10 => 10, //5 %
+            11 => 3, //Уход набор
+            13 => 3, //Тущь
         ];
 
         foreach ($productProbabilities as $id => $probability) {
