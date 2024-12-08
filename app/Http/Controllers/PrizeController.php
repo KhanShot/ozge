@@ -63,7 +63,7 @@ class PrizeController extends Controller
         $client->product_id = $prize->id;
 
         $client->save();
-
+        return s
         return response()->json(['is_valid' => true, 'msg' => null], 200);
     }
 

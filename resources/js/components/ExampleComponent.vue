@@ -67,16 +67,17 @@ import CryptoJS from "crypto-js";
                   textDirection: "vertical",
                   btnWidth: 80,
                   fontSize: 16,
-                  textLength: 70,
+                  textLength: 35,
                   btnText: '',
                   disabled: true,
+                  lineHeight: 10,
+                  textRadius: 220,
               },
               prizes:[]
             }
         },
         mounted() {
 
-            console.log('Component mounted.')
         },
         created() {
             this.getPrizes()
@@ -85,12 +86,10 @@ import CryptoJS from "crypto-js";
 
             onCanvasRotateStart(rotate) {
                 $(".fw-btn__btn").addClass('down')
-                console.log('toggled')
                 if (this.canvasVerify) {
                     const verified = true // true: the test passed the verification, false: the test failed the verification
                     this.DoServiceVerify(verified, 500).then((verifiedRes) => {
                         if (verifiedRes) {
-                            console.log('Verification passed, start to rotate')
                             rotate()
                             this.canvasVerify = false
                             this.canvasOptions.disabled = true
@@ -101,7 +100,6 @@ import CryptoJS from "crypto-js";
                 }else{
                     console.log('not allowed')
                 }
-                console.log('onCanvasRotateStart')
             },
             encryptP(value, apiKey) {
                 return CryptoJS.AES.encrypt(value.toString(), apiKey, {}).toString();
@@ -146,24 +144,25 @@ import CryptoJS from "crypto-js";
                 axios
                     .post('/prizes/assign', encData)
                     .then((response) => {
-                        if (prize.id === 1){
+                        console.log(prize.id)
+                    if (prize.id === 1){
                             this.$swal.fire({
                                 icon: "error",
                                 title: ":(",
                                 text: prize.value,
                             })
-                        }
-                        this.$swal.fire({
-                            icon:"success",
-                            title: 'Ұтыс!',
-                            text: prize.value,
-                            backdrop: `
+                        }else{
+                            this.$swal.fire({
+                                icon:"success",
+                                title: 'Ұтыс!',
+                                text: prize.value,
+                                backdrop: `
                                 rgba(0,0,123,0.4)
                                 url("https://i.pinimg.com/originals/fd/b0/9c/fdb09cd5e747f5c8330f998f11efb0a1.gif")
                                 center
                                 no-repeat`
-                        })
-                        console.log(response.data)
+                            })
+                        }
                     }).catch((error) => {
                     this.$swal.fire({
                         icon: "error",
