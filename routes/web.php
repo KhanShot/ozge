@@ -17,7 +17,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('clients', \App\Http\Controllers\Admin\ClientController::class);
 
 });
-Route::get('p-list', [\App\Http\Controllers\PrizeController::class, 'getPrizes']);
+Route::get('p-list', [\App\Http\Controllers\PrizeController::class, 'getPri zes']);
 
 Route::post('prizes/check', [\App\Http\Controllers\PrizeController::class, 'checkPrize']);
 Route::post('prizes/assign', [\App\Http\Controllers\PrizeController::class, 'assignPrize']);

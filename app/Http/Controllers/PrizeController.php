@@ -68,7 +68,7 @@ class PrizeController extends Controller
 
 
         if ($quantity >= (int)$prize->quantity_day){
-            $product = Products::query()->find(1);
+            $product = Products::query()->find(5);
             if ($product) {
                 $product->update(['probability' => $product->probability + (int) $prize->probability]);
                 $prize->update(['probability' => 0]);
