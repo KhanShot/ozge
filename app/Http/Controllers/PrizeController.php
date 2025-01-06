@@ -63,17 +63,17 @@ class PrizeController extends Controller
         $client->product_id = $prize->id;
 
 
-
-        $quantity = Clients::query()->where('product_id', $prize->id)->whereDate('used_date', now()->today())->count() + 1;
-
-
-        if ($quantity >= (int)$prize->quantity_day){
-            $product = Products::query()->find(5);
-            if ($product) {
-                $product->update(['probability' => $product->probability + (int) $prize->probability]);
-                $prize->update(['probability' => 0]);
-            }
-        }
+        $quantity = null;
+//        $quantity = Clients::query()->where('product_id', $prize->id)->whereDate('used_date', now()->today())->count() + 1;
+//
+//
+//        if ($quantity >= (int)$prize->quantity_day){
+//            $product = Products::query()->find(5);
+//            if ($product) {
+//                $product->update(['probability' => $product->probability + (int) $prize->probability]);
+//                $prize->update(['probability' => 0]);
+//            }
+//        }
         $client->save();
         return response()->json(['is_valid' => true, 'msg' => $quantity, 'prize' => (int)$prize->quantity_day], 200);
     }
